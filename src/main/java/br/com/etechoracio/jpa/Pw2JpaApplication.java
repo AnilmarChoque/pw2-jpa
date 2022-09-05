@@ -11,3 +11,4 @@ public class Pw2JpaApplication {
 	}
 
 }
+

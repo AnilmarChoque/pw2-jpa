@@ -1,13 +1,16 @@
 package br.com.etechoracio.jpa.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -43,6 +46,11 @@ public class Veiculo {
 	@JoinColumn(name = "ID_PROPRIETARIO")
 	@ManyToOne
 	private Proprietario proprietario;
+	
+	@JoinTable(name = "TBL_REL_VEICULO_ACESSORIO", joinColumns = { @JoinColumn(name = "ID_VEICULO")} , inverseJoinColumns = { @JoinColumn(name = "ID_ACESSORIO")}) 
+	
+	@ManyToMany
+	private List<Acessorio> acessorio;
     
 	
 }

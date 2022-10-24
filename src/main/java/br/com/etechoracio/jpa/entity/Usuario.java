@@ -13,12 +13,14 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 @Entity
+@Builder
 @Table(name = "TBL_USUARIO")
 public class Usuario {
 
@@ -31,7 +33,7 @@ public class Usuario {
 	private String nome;
 	
 	@Column(name = "TX_SENHA")
-	private String Senha;
+	private String senha;
 	
 	@Column(name = "DT_INATIVACAO")
 	private LocalDateTime dataInativacao;
